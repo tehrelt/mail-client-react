@@ -1,10 +1,10 @@
-import {Container} from "../components/container.tsx";
-import {Input} from "../components/input.tsx";
+import {Container} from "@/components/container.tsx";
+import {Input} from "@/components/input.tsx";
 import React, {useState} from "react";
-import {api} from "../api/api.ts";
-import {setUser} from "../store/slices/user.ts";
+import {api} from "@/api/api.ts";
+import {setUser} from "@/store/slices/user.ts";
 import {useNavigate} from "react-router-dom";
-import {notifyError, notifySuccess} from "../components/toasts.ts";
+import {notifyError, notifySuccess} from "@/components/toasts.ts";
 import {useDispatch} from "react-redux";
 import {Button} from "@/components/ui/button.tsx";
 

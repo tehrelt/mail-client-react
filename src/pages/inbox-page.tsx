@@ -1,10 +1,10 @@
-import {useAuth} from "../hooks/useAuth.ts";
+import {useAuth} from "@/hooks/useAuth.ts";
 import {useEffect, useState} from "react";
-import {api, pop3} from "../api/api.ts";
-import {Container} from "../components/container.tsx";
+import {api, pop3} from "@/api/api.ts";
+import {Container} from "@/components/container.tsx";
 import {useDispatch} from "react-redux";
-import {removeUser} from "../store/slices/user.ts";
-import {notifyError, notifySuccess} from "../components/toasts.ts";
+import {removeUser} from "@/store/slices/user.ts";
+import {notifyError, notifySuccess} from "@/components/toasts.ts";
 import {Button} from "@/components/ui/button.tsx";
 import {formatDate} from "@/helpers/date.ts";
 import {useNavigate} from "react-router-dom";
@@ -30,6 +30,8 @@ const InboxPage = () => {
             notifySuccess(`Fetched ${data.messages.length} messages`)
         } catch (e) {
             // console.log(e)
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             notifyError(e.response.data.message)
             dispatch(removeUser())
         } finally {
