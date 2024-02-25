@@ -11,11 +11,11 @@ const RequiredAuth = ({children}: Props) => {
     const location = useLocation()
     const auth = useAuth()
 
-    if (!auth.isAuth) {
+   if (!auth.isAuth) {
         return <Navigate to='/login' state={{from: location}}/>
-    }
+   }
 
-    return children
+    return children;
 }
 
 export {RequiredAuth}

@@ -5,7 +5,7 @@ interface appState {
 }
 
 const initialState: appState = {
-    email: null,
+    email: localStorage.getItem("email"),
 }
 
 const userSlice = createSlice({
@@ -13,9 +13,11 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser(state: appState, action) {
+            localStorage.setItem("email", action.payload.email)
             state.email = action.payload.email
         },
         removeUser(state) {
+            localStorage.removeItem("email")
             state.email = null
         }
     }

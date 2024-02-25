@@ -10,25 +10,23 @@ import {ToastContainer} from "react-toastify";
 
 function App() {
 
-  return (
-    <>
-        <Routes>
-            <Route path="/" element={<Layout/>}>
-                <Route index element={<HomePage/>}  />
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<HomePage/>}  />
+                    <Route path="/login" element={<LoginPage/>} />
+                    <Route path="/inbox" element={
+                        <RequiredAuth>
+                            <InboxPage/>
+                        </RequiredAuth>
+                    }/>
+                </Route> {/* path="/" */}
+            </Routes>
 
-                <Route path="/login" element={<LoginPage/>} />
-
-                <Route path="/inbox" element={
-                    <RequiredAuth>
-                        <InboxPage/>
-                    </RequiredAuth>
-                }/>
-            </Route> {/* path="/" */}
-        </Routes>
-
-        <ToastContainer/>
-    </>
-  )
+            <ToastContainer/>
+        </>
+      )
 }
 
 export default App
