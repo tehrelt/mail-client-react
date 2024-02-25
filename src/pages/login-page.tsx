@@ -6,6 +6,7 @@ import {setUser} from "../store/slices/user.ts";
 import {useNavigate} from "react-router-dom";
 import {notifyError, notifySuccess} from "../components/toasts.ts";
 import {useDispatch} from "react-redux";
+import {Button} from "@/components/ui/button.tsx";
 
 const LoginPage = () => {
     const dispatch = useDispatch()
@@ -44,6 +45,7 @@ const LoginPage = () => {
         navigate("/inbox")
     }
 
+    
     return (
         <Container className="min-w-48 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 p-12">
             <div>
@@ -54,11 +56,11 @@ const LoginPage = () => {
                         <Input label="Password" value={password} type="password" onChange={setPassword} name="password"/>
                     </div>
                     <div className="flex justify-end mt-2">
-                        <button
-                            onClick={(e) => login(e)}
-                            className="text-gray-600 font-semibold border bg-slate-400 col-span-2 py-2 px-8 ml-4 hover:bg-slate-300 transition-all ease-in-out">
+                        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                        {/*@ts-expect-error*/}
+                        <Button onClick={(e) => login(e)}>
                             LOG IN
-                        </button>
+                        </Button>
                     </div>
 
                 </form>

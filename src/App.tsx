@@ -7,6 +7,7 @@ import {InboxPage} from "./pages/inbox-page.tsx";
 import {HomePage} from "./pages/home-page.tsx";
 import {LoginPage} from "./pages/login-page.tsx";
 import {ToastContainer} from "react-toastify";
+import {MailPage} from "@/pages/mail-page.tsx";
 
 function App() {
 
@@ -19,6 +20,11 @@ function App() {
                     <Route path="/inbox" element={
                         <RequiredAuth>
                             <InboxPage/>
+                        </RequiredAuth>
+                    }/>
+                    <Route path="/inbox/:id" element={
+                        <RequiredAuth>
+                            <MailPage/>
                         </RequiredAuth>
                     }/>
                 </Route> {/* path="/" */}

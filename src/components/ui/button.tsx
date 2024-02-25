@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 
 interface Props {
-    className: string
+    className?: string
     onClick: () => void
     children: ReactNode
     disabled: boolean
