@@ -1,5 +1,4 @@
-import {Outlet} from "react-router-dom";
-import {retry} from "@reduxjs/toolkit/query";
+import {Outlet} from "react-router-dom"
 
 const Layout = () => {
     return <>
@@ -7,7 +6,7 @@ const Layout = () => {
 
             </header>
 
-            <main>
+            <main className="relative w-full h-screen">
                 <Outlet/>
             </main>
 
