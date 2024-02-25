@@ -55,11 +55,16 @@ const InboxPage = () => {
         navigate(`/inbox/${id}`)
     }
 
+    function sendNew() {
+        navigate("/inbox/send")
+    }
+
     return <>
         <Container className="w-3/5 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
             <div className="flex justify-between">
                 <h2 className="font-bold mb-4 pl-3 text-2xl ">{auth.email}</h2>
                 <div className="flex gap-x-6 mb-3">
+                    <Button onClick={sendNew} disabled={false} >Send new</Button>
                     <Button disabled={fetching} onClick={fetch} className="w-48">{fetching ? "Refreshing" : "Refresh"}</Button>
                     <Button onClick={logout} className="" disabled={false}>Logout</Button>
                 </div>

@@ -9,7 +9,7 @@ export const api = axios.create({
 
 export const smtp = axios.create({
     baseURL: `${BASE_URL}/smtp`,
-    timeout: 1000
+    timeout: 100000
 })
 
 export const pop3 = axios.create({

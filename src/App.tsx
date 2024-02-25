@@ -12,6 +12,7 @@ import {InboxPage} from "@/pages/inbox-page.tsx";
 import {HomePage} from "@/pages/home-page.tsx";
 import {LoginPage} from "@/pages/login-page.tsx";
 import {MailPage} from "@/pages/mail-page.tsx";
+import {SendEmailPage} from "@/pages/send-email-page.tsx";
 
 function App() {
 
@@ -31,9 +32,13 @@ function App() {
                             <MailPage/>
                         </RequiredAuth>
                     }/>
+                    <Route path="/inbox/send" element={
+                        <RequiredAuth>
+                            <SendEmailPage/>
+                        </RequiredAuth>
+                    }/>
                 </Route> {/* path="/" */}
             </Routes>
-
             <ToastContainer/>
         </>
       )
