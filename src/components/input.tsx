@@ -9,8 +9,9 @@ interface Props {
 
 const Input = ({name, label, value, type, onChange}: Props) => {
     return <>
-        <span htmlFor={name} className="my-auto">{label}</span>
+        <span className="my-auto">{label}</span>
         <input className="p-2"
+               name={name}
                type={type}
                value={value}
                onChange={(event) => onChange(event.target.value)}/>
