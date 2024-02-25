@@ -18,8 +18,10 @@ const InboxPage = () => {
     const auth = useAuth()
 
     const [messages, setMessages] = useState<Mail[]>([])
+    const [fetching, setFetching] = useState<boolean>(false)
 
     const fetch = async () => {
+        setFetching(true)
         try {
             const r = await pop3.get("/list")
             const data: data = r.data.data
@@ -29,6 +31,8 @@ const InboxPage = () => {
             // console.log(e)
             notifyError(e.response.data.message)
             dispatch(removeUser())
+        } finally {
+            setFetching(false)
         }
     }
 
@@ -49,7 +53,7 @@ const InboxPage = () => {
             <div className="flex justify-between">
                 <h2 className="font-bold mb-4 pl-3">{auth.email}</h2>
                 <div className="flex gap-x-6 mb-3">
-                    <Button onClick={fetch} className="">Refresh</Button>
+                    <Button disabled={fetching} onClick={fetch} className="w-48">{fetching ? "Refreshing" : "Refresh"}</Button>
                     <Button onClick={logout} className="">Logout</Button>
                 </div>
             </div>
@@ -65,7 +69,7 @@ const InboxPage = () => {
                                 <p className="font-bold">{m.from}</p>
                                 <p>{m.subject.substring(0, 30) + (m.subject.length > 30 ? "..." : "")}</p>
                             </div>
-                            <p className="text-slate-700">{formatDate(m.date)}</p>
+                            <p className="text-slate-900">{formatDate(m.date)}</p>
                         </div>
                         <p className="whitespace-normal">{m.body}</p>
                     </div>
