@@ -85,9 +85,9 @@ const InboxPage = () => {
                                 <p className="text-slate-900">{formatDate(m.date)}</p>
                             </div>
                             {m.body ? (
-                                <p className="whitespace-normal">{m.body[0].body.substring(0, 96) + (m.body[0].body.length > 96 ? "..." : "")}</p>
+                                <p className="whitespace-normal">{m.body.substring(0, 96) + (m.body.length > 96 ? "..." : "")}</p>
                             ) : (
-                                <p className="text-red-500">Cannot parse message</p>
+                                <p className="text-red-500"></p>
                             )}
 
                         </div>

@@ -5,10 +5,10 @@ interface MailMeta {
     UID: string
 }
 
-interface BodyType {
-    contentType: string
-    charset: string
-    body: string
+interface Attachment {
+    fileName: string
+    mediaType: string
+    data: string
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -16,9 +16,10 @@ interface Mail {
     from: string
     to: string[]
     subject: string
-    body: BodyType[]
+    body: string
     date: string
     meta: MailMeta
+    attachments?: Attachment[]
 }
 
 interface Stat {
